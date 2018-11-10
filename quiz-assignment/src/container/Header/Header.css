@@ -1,0 +1,35 @@
+.quiz{
+    background-color: aquamarine;
+    margin-bottom: 50px;
+    border: 2px solid #008000;
+    border-radius: 10px;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    box-shadow: 5px 5px lightgray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@media(max-width : 950px){
+    .quiz{
+        font-size: 14px;
+    }
+}
+
+@media(max-width : 460px){
+    .quiz{
+        font-size: 10px;
+    }
+}
+
+@media(max-width : 360px){
+    .quiz{
+        font-size: 6px;
+    }
+}
+
+@media(max-width : 250px){
+    .quiz{
+        font-size: 4px;
+    }
+}
