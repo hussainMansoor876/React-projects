@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Provider } from 'react-redux'
 // import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import Routes from './Config/routes'
+import store from './Redux/store'
 // import {User} from './Screens'
 
 // // console.log(User)
@@ -66,6 +68,7 @@ class App extends Component {
 // // ))
 
     return (
+      <Provider store={store}>
       <div>
          <Routes/>
          {/* {latitude && <MyMapComponent
@@ -76,6 +79,7 @@ class App extends Component {
 //   mapElement={<div style={{ height: `100%` }} />}
 // />} */}
       </div>
+      </Provider>
     );
   }
 }

@@ -7,6 +7,14 @@
     min-width: 300px;
     border: lightgray solid 2px;
     border-radius: 10px;
+    transition: 1s;
+  }
+
+  @media(max-width: 400px){
+    #regForm {
+        min-width: 150px;
+        padding: 20px;
+      }
   }
   
   /* Style the input fields */
@@ -66,8 +74,8 @@
     margin-top:40px;
 }
 
-/* The container1 */
-.container1 {
+/* The container2 */
+.container2 {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -81,7 +89,7 @@
 }
 
 /* Hide the browser's default checkbox */
-.container1 input {
+.container2 input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -100,12 +108,12 @@
 }
 
 /* On mouse-over, add a grey background color */
-.container1:hover input ~ .checkmark {
+.container2:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container1 input:checked ~ .checkmark {
+.container2 input:checked ~ .checkmark {
     background-color: #2196F3;
 }
 
@@ -117,12 +125,12 @@
 }
 
 /* Show the checkmark when checked */
-.container1 input:checked ~ .checkmark:after {
+.container2 input:checked ~ .checkmark:after {
     display: block;
 }
 
 /* Style the checkmark/indicator */
-.container1 .checkmark:after {
+.container2 .checkmark:after {
     left: 9px;
     top: 5px;
     width: 5px;

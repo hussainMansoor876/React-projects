@@ -19,7 +19,7 @@ class User extends Component {
         this.state = {
             currentTab : 0,
             userInfo : {
-                userName : localStorage.getItem('userUid'),
+                userName : localStorage.getItem('userName'),
                 userUid : localStorage.getItem('userUid'),
                 userEmail : localStorage.getItem('userEmail'),
                 nickName : '',
@@ -52,7 +52,7 @@ class User extends Component {
             loader : true,
             loader1 : true
         }
-        // console.log('props',props)
+        console.log('props',props)
         // this.userData = this.userData.bind(this)
         this.loaderOff = this.loaderOff.bind(this)
         this.latLng = this.latLng.bind(this)
@@ -206,7 +206,7 @@ class User extends Component {
             // Object.entries(pictures).forEach(([key, value]) => console.log(pictures[key]['name']));
         return(
             <div>
-                {loader1 ? <form id="regForm" action="">
+                {loader1 ? <form id="regForm">
                 {currentTab === 0 && <div className="form-group">Nick Name:
                 <p><input placeholder="Nick Name..." name='nickName' value={userInfo.nickName}  onChange={(e)=>this.userData(e)} className="form-control" /></p>
                 Phone Number:
@@ -221,15 +221,15 @@ class User extends Component {
 
                 {currentTab === 2 && <div className="form-group">
                 <h1>Select Beverages</h1>
-                    <label className="container1">Coffe
+                    <label className="container2">Coffe
                         <input type="checkbox" name='beverages' value='Coffe' onClick={(e)=> this.updateCheckBox(e.target)}/>
                         <span className="checkmark"></span>
                         </label>
-                        <label className="container1">Juice
+                        <label className="container2">Juice
                         <input type="checkbox" name='beverages' value='Juice' onClick={(e)=> this.updateCheckBox(e.target)} />
                         <span className="checkmark"></span>
                         </label>
-                        <label className="container1" >Cocktail
+                        <label className="container2" >Cocktail
                         <input type="checkbox" name='beverages' value='Cocktail' onClick={(e)=> this.updateCheckBox(e.target)} />
                         <span className="checkmark"></span>
                         </label>
@@ -237,15 +237,15 @@ class User extends Component {
 
                 {currentTab === 3 && <div className="form-group">
                 <h1>Select Time Duration</h1>
-                    <label className="container1">30 minutes
+                    <label className="container2">30 minutes
                         <input type="checkbox" name='timeDurations' value='min_30' onClick={(e)=> this.updateCheckBox(e.target)} />
                         <span className="checkmark"></span>
                         </label>
-                        <label className="container1">60 minutes
+                        <label className="container2">60 minutes
                         <input type="checkbox"  name='timeDurations' value='min_60' onClick={(e)=> this.updateCheckBox(e.target)}/>
                         <span className="checkmark"></span>
                         </label>
-                        <label className="container1">120 minutes
+                        <label className="container2">120 minutes
                         <input type="checkbox" name='timeDurations' value='min_120' onClick={(e)=> this.updateCheckBox(e.target)} />
                         <span className="checkmark"></span>
                         </label>

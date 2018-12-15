@@ -178,3 +178,9 @@ h2{
     padding: 10px 30%;
   }
 }
+.btn3{
+  margin-top: 10px;
+  border: black solid 2px;
+  padding: 10px 74px;
+  transition: 0.3s;
+}

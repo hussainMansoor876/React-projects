@@ -32,8 +32,11 @@ class Meeting extends Component {
       locationsList : [],
       address : false,
       startDate: moment(),
-      meetingLocation : {},
-      locationSelect : false
+      meetingLocation : {
+        selectedDate : moment()._d.toString()
+      },
+      locationSelect : false,
+      directionSelect : false,
     }
     console.log('props',props)
     this.locationExist = this.locationExist.bind(this)
@@ -41,7 +44,7 @@ class Meeting extends Component {
   } 
 
   handleChange(date) {
-    // console.log(date._d)
+    console.log(date._d)
     // console.log(this.state.meetingLocation)
     this.setState({
       startDate: date,
@@ -141,10 +144,18 @@ class Meeting extends Component {
         val && firebase.database().ref(`userList/${meetingUser}`).child(`meetingList/recieve/${currentUser}`).set(meetingLocation)
         val && firebase.database().ref(`userList/${currentUser}`).child(`meetingList/send/${meetingUser}`).set(meetingLocation)
     })
+    .then(()=>{
+      this.props.history.replace('/dashboard')
+    })
+  }
+  directionSet(){
+    this.setState({
+      directionSelect : true
+    })
   }
 
   render() {
-    const {locationsList,address,startDate,locationSelect} = this.state
+    const {locationsList,address,startDate,locationSelect,directionSelect,meetingLocation,latitude,longitude} = this.state
     // var currentDate = new Date()
     // console.log(currentDate.toDateString())
     return (
@@ -170,6 +181,8 @@ class Meeting extends Component {
             timeCaption="Time"
             />
             <button type="button" className="btn btn-primary btn2" onClick={()=>this.fixMeeting()} >Confirm</button>
+            <br/>
+            <button type="button" className="btn btn-primary btn3" onClick={()=>this.directionSet()} >Get Direction</button>
             </div>
             </center> :
             <div>
@@ -193,6 +206,7 @@ class Meeting extends Component {
                 
             })}</center>
             </div>}
+            {directionSelect && <Direction userLat={latitude} userLng={longitude} meeting={meetingLocation}/>}
       </div>
     );
   }

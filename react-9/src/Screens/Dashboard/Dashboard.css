@@ -102,3 +102,100 @@ html, body{
 	width: inherit;
 	height: 400px;
 }
+.fixed {
+    position: fixed;
+    width: 90%;
+    bottom: 40px;
+	/* border: 3px solid #8AC007; */
+	float: right;
+	text-align: right;
+	transition: 0.3s;
+} 
+.img2{
+	width: 100%;
+	height: 300px;
+}
+
+.btn9{
+	padding: 20px 30px;
+	border: black solid 2px;
+	border-radius: 50%;
+	transition: 0.3s;
+	background-color:#0069D9;
+	color: white;
+	font-size: 30px;
+}
+
+@media(max-width: 900px){
+	.btn9{
+		padding: 17px 22px;
+	}
+}
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.3s;
+	width: 31%;
+	border-radius: 5px;
+	display: inline-block;
+	margin: 5px;
+	margin-top: 20px;
+  }
+  
+  .card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  img {
+	border-radius: 5px 5px 0 0;
+  }
+  
+  .container {
+	/* padding: 2px 16px; */
+	height: 120px !important;
+	padding-top: 22px !important;
+	overflow: hidden;
+	}
+	.container1 {
+		/* padding: 2px 16px; */
+		height: 210px !important;
+		padding-top: 22px !important;
+		overflow: hidden;
+		background-color: #ECECEC;
+		}
+		P{
+			font-size: 18px;
+		}
+  h2{
+	padding: 20px 0;
+  }
+  
+  @media only screen and (max-width : 900px){
+	.card {
+	  width: 47%;
+	}
+  }
+  @media only screen and (max-width : 550px){
+	.container {
+	  /* padding: 2px 16px; */
+	  font-size: 14px;
+	}
+  }
+  @media only screen and (max-width : 500px){
+	.card {
+	  width: 90%;
+	}
+	.container {
+	  /* padding: 2px 16px; */
+	  font-size: 16px;
+	}
+  }
+  
+  @media only screen and (max-width : 260px){
+	.name{
+	  font-size: 14px;
+	}
+	.container {
+	  /* padding: 2px 16px; */
+	  font-size: 12px;
+	}
+  }

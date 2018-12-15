@@ -9,6 +9,7 @@
     "google-map-react": "^1.0.9",
     "moment": "^2.22.2",
     "react": "^16.5.2",
+    "react-add-to-calendar": "^0.1.5",
     "react-datepicker": "^1.7.0",
     "react-dom": "^16.5.2",
     "react-float-button": "^0.1.2",

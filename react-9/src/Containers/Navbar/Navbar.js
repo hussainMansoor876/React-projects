@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './Navbar.css'
 import firebase from '../../firebase'
+import { updateUser } from '../../Redux/Action/authAction'
+import { connect } from 'react-redux'
 // import '../node_modules/font-awesome/css/font-awesome.min.css'
 // import {BrowserRouter as Router,Link} from "react-router-dom";
 
@@ -16,20 +18,26 @@ class Navbar extends Component {
       }
       this.login = this.login.bind(this)
       this.auth = this.auth.bind(this)
-      // console.log('Navbar',props)
     }
 
+    // componentDidMount(){
+    //   this.props.updateUser({name: 'mansoor', age: 20})
+    //   console.log('Navbar',this.props)
+    // }
+
     auth(user){
-      this.props.history.replace('/user')
+      console.log(user)
+      this.props.history.replace('/dashboard',user)
+      console.log(this.props)
     }
 
     login(){
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithPopup(provider).then((result)=> {
           // console.log(result)
           // var token = result.credential.accessToken
           // console.log(token)
           var user = result.user
-          console.log(user)
+          // console.log(user)
           // var saveData = {
           //   email : user.email,
           //   name : user.displayName,
@@ -38,13 +46,15 @@ class Navbar extends Component {
           // console.log(saveData)
           // firebase.database().ref().child('Users').push(saveData)
           // ...
+          this.props.updateUser({name: user.displayName, uid: user.uid, email: user.email})
           localStorage.setItem('userUid', user.uid)
           localStorage.setItem('userName', user.displayName)
           localStorage.setItem('userEmail', user.email)
+          return {name: user.displayName, uid: user.uid, email: user.email}
         })
         .then((user)=>{
           // console.log(user)
-          this.auth()
+          this.auth(user)
         })
         .catch(function(error) {
           // Handle Errors here.
@@ -58,6 +68,7 @@ class Navbar extends Component {
         });
       }
     render() {
+      console.log('props',this.props)
       return (
         <div>
         <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
@@ -100,6 +111,20 @@ class Navbar extends Component {
       );
     }
   }
+
+  const mapStateToProps = (state) => {
+    console.log('state',state)
+    return {
+      user: state.authReducer.user
+    }
+   }
   
-  export default Navbar;
+   const mapDispatchToProps = (dispatch) => {
+    return {
+      updateUser: (user) => dispatch(updateUser(user))
+    }
+  }
+   
+   
+   export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
   

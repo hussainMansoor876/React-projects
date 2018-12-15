@@ -49,6 +49,7 @@ class Navbar extends Component {
               </a>
             </li>
           </ul>
+          <button className="btn" onClick={()=> this.props.history.replace('/user')}>Edit Profile</button>
         </div>
       </nav>
       
